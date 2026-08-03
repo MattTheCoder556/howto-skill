@@ -1,0 +1,23 @@
+{
+  "name": "howto-skill",
+  "owner": {
+    "name": "MattTheCoder556",
+    "url": "https://github.com/MattTheCoder556"
+  },
+  "metadata": {
+    "description": "qmsWrapper user how-to authoring with annotated screenshots",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "howto",
+      "source": "./",
+      "description": "Turn a tested feature or a validation sheet into a user-facing how-to document with annotated screenshots, so you can find out whether ordinary users can actually complete the tasks unaided. Always includes screenshots; always asks what output format the document should be. Ships the qmsWrapper Documentation PDF pipeline (Chrome print-to-PDF), a highlight-aware screenshot cropper, and the house style.",
+      "version": "1.0.0",
+      "author": { "name": "MattTheCoder556", "url": "https://github.com/MattTheCoder556" },
+      "homepage": "https://github.com/MattTheCoder556/howto-skill",
+      "repository": "https://github.com/MattTheCoder556/howto-skill",
+      "license": "MIT"
+    }
+  ]
+}
