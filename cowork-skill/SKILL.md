@@ -253,8 +253,7 @@ pandoc how-to.md -o how-to.html --embed-resources --standalone
 
 ### PDF — use the house style, not pandoc's default
 
-qmsWrapper documentation PDFs have an established look (see
-`WrapperTesting/NewValidation/BenceHowTos/` for reference copies): a logo +
+qmsWrapper documentation PDFs have an established look: a logo +
 "Documentation" header rule, near-black headings on white, humanist sans body at
 generous line-height, and full-width screenshots with a hairline border. They are
 produced by **printing HTML from Chrome**, not by LaTeX.

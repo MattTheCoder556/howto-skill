@@ -23,6 +23,17 @@ out, i = [], 0
 title = None; lede_done = False
 while i < len(lines):
     ln = lines[i]
+    if ln.lstrip().startswith('```'):
+        # Fenced code block. Handled before anything else so its contents are
+        # never run through the inline rules -- a block of product messages is
+        # quoted verbatim, backticks and asterisks included.
+        i += 1
+        blk = []
+        while i < len(lines) and not lines[i].lstrip().startswith('```'):
+            blk.append(lines[i]); i += 1
+        i += 1
+        out.append('<pre><code>' + H.escape('\n'.join(blk)) + '</code></pre>')
+        continue
     m_img = re.match(r'!\[(.*?)\]\((.+?)\)', ln.strip())
     if m_img:
         alt, src = m_img.group(1), m_img.group(2)
@@ -129,6 +140,10 @@ figcaption { font-size:9.4pt; color:#6B7280; margin-top:7px; }
 .callout { border-left:3px solid #D1D5DB; background:#F9FAFB; padding:11px 15px;
   margin:16px 0 18px; font-size:10.6pt; color:#374151; break-inside:avoid; border-radius:0 4px 4px 0; }
 .callout.check { border-left-color:#B91C2C; background:#FDF6F7; }
+pre { background:#f6f7f9; border:1px solid #e3e6ea; border-radius:4px; padding:10px 12px;
+      margin:12px 0 18px; overflow-x:auto; break-inside:avoid; }
+pre code { font-family:'Ubuntu Mono',ui-monospace,Menlo,Consolas,monospace; font-size:9.4pt;
+      line-height:1.45; white-space:pre; color:#1a1d21; }
 table { width:100%; border-collapse:collapse; margin:14px 0 20px; font-size:10.4pt; break-inside:avoid; }
 th { text-align:left; font-weight:700; color:#24272C; border-bottom:2px solid #E5E7EB; padding:7px 9px; }
 td { border-bottom:1px solid #F3F4F6; padding:7px 9px; vertical-align:top; }
