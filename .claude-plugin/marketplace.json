@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "qmsWrapper user how-to authoring with annotated screenshots",
-    "version": "1.2.1"
+    "version": "1.2.2"
   },
   "plugins": [
     {
       "name": "howto",
       "source": "./",
       "description": "Turn a tested feature or a validation sheet into a user-facing how-to document with annotated screenshots, so you can find out whether ordinary users can actually complete the tasks unaided. Always includes screenshots, annotated to show where to click; always delivers both a PDF in the house style and the Markdown source it was built from. Ships the qmsWrapper Documentation PDF pipeline (Chrome print-to-PDF), a highlight-aware screenshot cropper, and the house style.",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "author": {
         "name": "MattTheCoder556",
         "url": "https://github.com/MattTheCoder556"
