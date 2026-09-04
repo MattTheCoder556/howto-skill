@@ -25,9 +25,51 @@ controlled record. The Markdown is the editable source, and the `screenshots/`
 folder belongs with it. Ship one without the other and the next revision has
 nowhere to start from: nobody edits a PDF, they regenerate it.
 
-## 1. Gather the source
+## 1. Settle the tier, then gather the source
 
-In order of preference:
+**The tier comes first, before the source and before a screen is opened.** A
+how-to is written at one entitlement tier, and that tier decides two things: the
+account the screenshots are captured on, and what the *Before you start* section
+promises the reader.
+
+**Look before you ask.** Unlike `/tutorial`, this skill usually has a source
+that already knows: a `/validation` matrix carries a `Tier` column, one value
+per row. If the sheet this how-to is built from has it, the tier is **the
+highest tier any covered task needs** — read it, say which sheet you read it
+from, and do not ask. Asking a question the source already answers wastes the
+writer's time and invites a different answer from the one the matrix records.
+
+Ask only when there is no such source, or the rows say `Unknown`:
+
+> **Which tier is this how-to written at?**
+> **1** Foundation · **2** Control · **3** Vigilance · **?** not sure
+
+**Ask for the tier, never for the account.** The tier is what the document
+states and what a reader checks their own plan against; the account is only how
+you reach a screen to photograph. Someone who knows a module gates at Control
+may not know which login that is, and logins are recreated far more often than
+tiers are renumbered — so the mapping lives in `reference/accounts.md`, not in
+the question put to the user.
+
+**Never guess it.** A guessed tier is the failure that poisons the whole
+document: prose promising Foundation over screenshots full of Vigilance chrome
+the reader will never find. If the answer is `?`, settle it in this order before
+shooting —
+
+1. the tiers workbook, *Tier basis (entitlement gate)* column;
+2. a route actually probed on the org, which shows what that plan exposes;
+3. a capability gate visible in the product.
+
+If none of the three settles it, say so and hold the document. `Unknown` is a
+matrix value, not something a reader can act on.
+
+**Where a module gates low but grows higher up**, the answer is the *gate* — the
+lowest tier the module appears at. The main path is written and shot there, and
+the higher-tier capability becomes a skippable task (§3), captured on that
+tier's account and labelled with the plan it needs. That is the only case where
+two accounts appear in one document.
+
+Then gather the source, in order of preference:
 
 1. **A test run in this session** — the click paths are already known, and so is
    which steps are fiddly. This is the best case: write the warnings from what
@@ -95,6 +137,16 @@ Coordinates are hand-entered here, so **look at the result** before shipping it.
 A box a hundred pixels off points confidently at the wrong thing, which is worse
 than no box at all.
 
+**Shoot on the account for the answered tier — never on a higher one.** The
+tier settled in §1 selects the login; "it was already signed in" is not a reason
+to capture a Foundation how-to on a Vigilance account. Higher plans add menu
+entries, columns and buttons, and every one of them in a screenshot is a promise
+the reader's plan will not keep, with nothing on the page to say which. The
+screenshots are what proves the tier the document claims, so they have to come
+from it. If the right account is unavailable, hold the document rather than
+substituting a neighbouring tier — a tester who cannot find a button you
+photographed reports a defect that does not exist.
+
 **Then crop to the control, not the window.** A 1600px screenshot renders the
 button about 8px wide once embedded. `scripts/crop_highlights.py` finds the pink
 and crops around it with padding:
@@ -134,9 +186,11 @@ lets someone self-correct.
 
 **Structure.**
 
-- **Before you start** — required role or permissions, which tier or plan, what
-  the reader will create and that it is disposable, how to name things so they
-  can be cleaned up, and the note about annotations from §2.
+- **Before you start** — required role or permissions, **the plan the module
+  needs** (the tier settled in §1, written the way the product names it —
+  *Foundation*, *Control*, *Vigilance*, never "Tier 2"), what the reader will
+  create and that it is disposable, how to name things so they can be cleaned
+  up, and the note about annotations from §2.
 - **One section per task**, numbered to match the source (`1.4`, `2.1`). Give
   each a short imperative heading.
 - **A `> **Can you do it?** ☐` box** closing every task. Add extra boxes where a
@@ -293,6 +347,10 @@ the UI changes, not edited in place.
   reader. Check hand-entered boxes by eye before shipping.
 - **Screenshots are mandatory.** If you cannot capture them, say so plainly and
   ask whether to proceed without — do not silently ship a text-only document.
+- **The tier is settled before anything is shot, and the screenshots come from
+  it.** Read it off the matrix's `Tier` column where there is one; ask only when
+  no source answers (§1). Never ask which *account* to use, never guess the
+  tier, and never capture on a higher tier than the one the document claims.
 - **Never invent a click path.** Every step must come from a screen you drove or
   a document that describes it.
 - **Relative image links** (`screenshots/…`) so the document and its folder
